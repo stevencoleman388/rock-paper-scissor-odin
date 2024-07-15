@@ -15,9 +15,10 @@ playRound(humanChoice,computerChoice)
 Move your playRound function and score variables so that they’re declared inside of the new playGame function
 Play 5 rounds by calling playRound 5 times. */
 let btn = document.querySelector("button");
+let computerChoice;
 function getComputerChoice() {
   let computerNumber = Math.floor(Math.random() * 3);
-  let computerChoice;
+
   if (computerNumber == 0) {
     computerChoice = "rock";
   } else if (computerNumber == 1) {
@@ -25,12 +26,13 @@ function getComputerChoice() {
   } else if (computerNumber == 2) {
     computerChoice = "scissors";
   }
-  // console.log(computerChoice);
+
   return computerChoice;
 }
 let count = 0;
+let usersChoice;
 function getHumanChoice() {
-  let usersChoice = prompt("Rock, Paper or Scissors").toLowerCase();
+  usersChoice = prompt("Rock, Paper or Scissors").toLowerCase();
   if (
     usersChoice != "rock" &&
     usersChoice != "paper" &&
@@ -38,22 +40,24 @@ function getHumanChoice() {
   ) {
     console.log("invalid");
   } else {
-    return usersChoice;
   }
+
+  return usersChoice;
 }
 
 /*
 Function to for functionality to compare to each choice humanSelection=getHumanChoice() and computerSelection=getComputerChoice()
 playRound(humanChoice, computerChoice); */
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+// let humanSelection = getHumanChoice();
+// let computerSelection = getComputerChoice();
 // playRound(humanSelection, computerSelection);
 
 function playGame() {
   let count = 0;
   let computerScore = 0;
   let playerScore = 0;
+  // let score = ;
   function playRound(humanChoice, computerChoice) {
     if (humanChoice == "rock" && computerChoice == "scissors") {
       playerScore++;
@@ -70,11 +74,32 @@ function playGame() {
     } else if (humanChoice == computerChoice) {
       console.log("tie");
     }
-    return playerScore, computerScore;
+    // count++;
   }
-  playRound(humanSelection, computerSelection);
-  console.log(humanSelection, playerScore);
-  console.log(computerSelection, computerScore);
+
+  // playRound(humanSelection, computerSelection);
+
+  // getComputerChoice();
+  // console.log(humanSelection, playerScore);
+  // console.log(computerSelection, computerScore);
+  // console.log(count);
+  while (count < 5) {
+    playRound(getHumanChoice(), getComputerChoice());
+    count++;
+    console.log(`Player chooses ${usersChoice} score ${playerScore}`);
+    console.log(`Computer chooses ${computerChoice} score ${computerScore}`);
+
+    console.log(count);
+  }
+  // console.log(humanSelection, playerScore);
+  // console.log(computerSelection, computerScore);
+  // return playerScore;
+  console.log(`Final Score Player ${playerScore}, Computer ${computerScore}`);
 }
 playGame();
 // btn.addEventListener("click", playGame);
+//  getHumanChoice();
+//  getComputerChoice();
+//  console.log(playerScore);
+//  console.log(getHumanChoice());
+//  console.log(getComputerChoice());
