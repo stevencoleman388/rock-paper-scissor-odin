@@ -1,18 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="scripts.js" defer></script>
+    <script src="scripts3.js" defer></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Odin Project Rock Paper Scissors</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div style="display: flex; align-items: center; flex-direction: column">
-      <h1 style="margin-top: 200px">Open In Console To Play</h1>
-      <p>
-        You will have to cancel the prompt 5 times first, open console then
-        refresh.
-      </p>
+    <h1>Rock Paper & Scissors</h1>
+    <h2 class="score-display"></h2>
+
+    <div class="game-board">
+      <div class="currentScoreD">
+        <h3 class="pScore"></h3>
+        <h3 class="cScore"></h3>
+      </div>
+      <div class="one">
+        <div class="player-display">
+          <h3 class="pchose"></h3>
+        </div>
+        <div class="cpt-display">
+          <h3 class="cchose"></h3>
+        </div>
+      </div>
+      <div class="two">
+        <button class="btnrock">Rock</button>
+        <button class="btnpaper">Paper</button>
+        <button class="btnscissors">Scissors</button>
+      </div>
+      <button class="refresh" hidden>Restart</button>
     </div>
   </body>
 </html>
