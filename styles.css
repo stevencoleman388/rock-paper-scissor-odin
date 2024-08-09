@@ -65,3 +65,43 @@ h1 {
   gap: 20px;
   justify-content: center;
 }
+
+.playerHandPic {
+  transform: rotateY(180deg);
+}
+.playerRock {
+  transform: rotateY(180deg);
+}
+.scissors {
+  transform: rotateY(180deg);
+}
+.paperImg {
+  transform: rotateY(180deg);
+}
+
+.defaulthand {
+  animation-name: start-shaking;
+  animation-duration: 0.5s;
+  animation-iteration-count: 4;
+}
+.defaulthand2 {
+  animation-name: start-shaking2;
+  animation-duration: 0.5s;
+  animation-iteration-count: 4;
+}
+@keyframes start-shaking {
+  from {
+    transform: rotateY(180deg) translateY(0px);
+  }
+
+  to {
+    transform: rotateY(180deg) translateY(10px);
+  }
+}
+@keyframes start-shaking2 {
+  from {
+  }
+  to {
+    transform: translateY(10px);
+  }
+}

@@ -10,19 +10,53 @@
   <body>
     <h1>Rock Paper & Scissors</h1>
     <h2 class="score-display"></h2>
-
     <div class="game-board">
       <div class="currentScoreD">
         <h3 class="pScore"></h3>
         <h3 class="cScore"></h3>
       </div>
+      <div class="mainHand">
+        <img src="rock copy.png" width="120px" class="playerHandPic" />
+        <img
+          src="rock copy.png"
+          alt=""
+          width="120px"
+          class="playerRock"
+          hidden
+        />
+        <img
+          src="paper copy.png"
+          alt=""
+          width="120px"
+          class="paperImg"
+          hidden
+        />
+        <img
+          src="scissors copy.png"
+          alt=""
+          width="120px"
+          class="scissors"
+          hidden
+        />
+        <img
+          src="rock copy.png"
+          alt="Open hand"
+          width="120px"
+          class="compHandPic"
+        />
+        <img src="rock copy.png" alt="" width="120px" class="compRock" hidden />
+        <img src="paper copy.png" alt="" width="120px" class="cpaper" hidden />
+        <img
+          src="scissors copy.png"
+          alt=""
+          width="120px"
+          class="cscissors"
+          hidden
+        />
+      </div>
       <div class="one">
-        <div class="player-display">
-          <h3 class="pchose"></h3>
-        </div>
-        <div class="cpt-display">
-          <h3 class="cchose"></h3>
-        </div>
+        <div class="player-display" id="playerHand"></div>
+        <div class="cpt-display" id="compHand"></div>
       </div>
       <div class="two">
         <button class="btnrock">Rock</button>

@@ -3,14 +3,20 @@ let usersChoice;
 let gameBoard = document.querySelector(".game-board");
 let scoreDisplay = document.querySelector(".score-display");
 let currenScoreD = document.querySelector(".currentScoreD");
-let playerD = document.querySelector(".pchose");
-let cpt = document.querySelector(".cchose");
 let btnRock = document.querySelector(".btnrock");
 let btnPaper = document.querySelector(".btnpaper");
 let btnScissors = document.querySelector(".btnscissors");
 let refreshBtn = document.querySelector(".refresh");
 let pScore = document.querySelector(".pScore");
 let cScore = document.querySelector(".cScore");
+let playerHandPic = document.querySelector(".playerHandPic");
+let compHandPic = document.querySelector(".compHandPic");
+let playerPaper = document.querySelector(".paperImg");
+let playerScissors = document.querySelector(".scissors");
+let compPaper = document.querySelector(".cpaper");
+let compScissors = document.querySelector(".cscissors");
+let playerRock = document.querySelector(".playerRock");
+let compRock = document.querySelector(".compRock");
 function getComputerChoice() {
   let computerNumber = Math.floor(Math.random() * 3);
   if (computerNumber == 0) {
@@ -20,7 +26,28 @@ function getComputerChoice() {
   } else if (computerNumber == 2) {
     computerChoice = "scissors";
   }
+  compDisplay();
   return computerChoice;
+}
+function compDisplay() {
+  if (computerChoice == "rock") {
+    compRock.removeAttribute("hidden");
+    compPaper.setAttribute("hidden", true);
+    compScissors.setAttribute("hidden", true);
+    compHandPic.setAttribute("hidden", true);
+  }
+  if (computerChoice == "paper") {
+    compPaper.removeAttribute("hidden");
+    compRock.setAttribute("hidden", true);
+    compScissors.setAttribute("hidden", true);
+    compHandPic.setAttribute("hidden", true);
+  }
+  if (computerChoice == "scissors") {
+    compScissors.removeAttribute("hidden");
+    compRock.setAttribute("hidden", true);
+    compPaper.setAttribute("hidden", true);
+    compHandPic.setAttribute("hidden", true);
+  }
 }
 function playGame() {
   let round = 0;
@@ -36,7 +63,18 @@ function playGame() {
     refreshBtn.setAttribute("hidden", true);
     scoreDisplay.textContent = `Round ${round}`;
     pScore.textContent = `Player:${playerScore}`;
-    cScore.textContent = `Computer: ${computerScore}`;
+    cScore.textContent = `Computer:${computerScore}`;
+    startingHands();
+  }
+  function startingHands() {
+    playerHandPic.removeAttribute("hidden");
+    playerRock.setAttribute("hidden", true);
+    playerPaper.setAttribute("hidden", true);
+    playerScissors.setAttribute("hidden", true);
+    compHandPic.removeAttribute("hidden");
+    compRock.setAttribute("hidden", true);
+    compPaper.setAttribute("hidden", true);
+    compScissors.setAttribute("hidden", true);
   }
   function playRound() {
     getComputerChoice();
@@ -57,10 +95,8 @@ function playGame() {
     round++;
     scoreDisplay.removeAttribute("hidden");
     scoreDisplay.textContent = `Round ${round}`;
-    playerD.textContent = `Player:${usersChoice}`;
-    cpt.textContent = `Computer:${computerChoice}`;
     pScore.textContent = `Player:${playerScore}`;
-    cScore.textContent = `Computer: ${computerScore}`;
+    cScore.textContent = `Computer:${computerScore}`;
     currenScoreD.removeAttribute("hidden");
     if (round == 5) {
       if (playerScore > computerScore) {
@@ -77,21 +113,31 @@ function playGame() {
     }
   }
   refreshBtn.addEventListener("click", () => {
-    playerD.textContent = `Player:`;
-    cpt.textContent = `Computer:`;
     begin();
   });
+
   btnRock.addEventListener("click", () => {
     usersChoice = "rock";
+    playerRock.removeAttribute("hidden");
+    playerPaper.setAttribute("hidden", true);
+    playerScissors.setAttribute("hidden", true);
+    playerHandPic.setAttribute("hidden", true);
     playRound();
   });
-
   btnPaper.addEventListener("click", () => {
     usersChoice = "paper";
+    playerPaper.removeAttribute("hidden");
+    playerRock.setAttribute("hidden", true);
+    playerScissors.setAttribute("hidden", true);
+    playerHandPic.setAttribute("hidden", true);
     playRound();
   });
   btnScissors.addEventListener("click", () => {
     usersChoice = "scissors";
+    playerScissors.removeAttribute("hidden");
+    playerPaper.setAttribute("hidden", true);
+    playerRock.setAttribute("hidden", true);
+    playerHandPic.setAttribute("hidden", true);
     playRound();
   });
 }
